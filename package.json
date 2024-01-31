@@ -6,13 +6,15 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "nodemon"
+    "dev": "cross-env NODE_ENV=development nodemon"
   },
   "devDependencies": {
     "@telegraf/types": "^6.9.1",
     "@types/node": "^20.11.10",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.1",
     "eslint": "^8.56.0",
     "eslint-nexi": "github:nexinexi/eslint-config",
     "nodemon": "^3.0.3",
