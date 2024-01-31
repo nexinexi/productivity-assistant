@@ -1,0 +1,27 @@
+{
+  "name": "tg-bot-nexi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Adam Galeb",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "devDependencies": {
+    "@telegraf/types": "^6.9.1",
+    "@types/node": "^20.11.10",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
+    "eslint": "^8.56.0",
+    "eslint-nexi": "github:nexinexi/eslint-config",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.14",
+    "telegraf": "^4.15.3"
+  }
+}
