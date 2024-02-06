@@ -6,7 +6,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon"
+    "reinstall": "rm -rf node_modules yarn.lock && yarn cache clean && yarn install",
+    "build": "rm -rf build && tsc && tsc-alias",
+    "start:prod": "yarn build && cross-env NODE_ENV=production node build/index.js",
+    "start:prod:test": "cross-env NODE_ENV=production node build/index.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon",
+    "lint": "eslint --ext .ts ./src"
   },
   "devDependencies": {
     "@telegraf/types": "^6.9.1",
@@ -19,11 +24,14 @@
     "eslint-nexi": "github:nexinexi/eslint-config",
     "nodemon": "^3.0.3",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14",
+    "currency-converter-lt": "^2.0.1",
+    "dayjs": "^1.11.10",
     "telegraf": "^4.15.3"
   }
 }
