@@ -9,7 +9,6 @@
     "reinstall": "rm -rf node_modules yarn.lock && yarn cache clean && yarn install",
     "build": "rm -rf build && tsc && tsc-alias",
     "start:prod": "yarn build && cross-env NODE_ENV=production node build/index.js",
-    "start:prod:test": "cross-env NODE_ENV=production node build/index.js",
     "start:dev": "cross-env NODE_ENV=development nodemon",
     "lint": "eslint --ext .ts ./src"
   },
