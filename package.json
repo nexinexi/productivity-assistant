@@ -1,7 +1,7 @@
 {
-  "name": "tg-bot-nexi",
+  "name": "personal-assistant",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Telegram bot for boost personal productivity through expense tracking and habit management",
   "author": "Adam Galeb",
   "license": "MIT",
   "private": true,

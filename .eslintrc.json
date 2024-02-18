@@ -1,4 +1,5 @@
 {
+  "ignorePatterns": ["build"],
   "extends": [
     "./node_modules/eslint-nexi/.eslintrc.json"
   ]
