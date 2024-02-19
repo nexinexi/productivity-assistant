@@ -39,9 +39,8 @@ export class DateHelper {
         : currentMonth.date();
     const start = lastMonth.startOf('month').format();
     const end = dayjs(start)
-      .set('hour', currentMonth.hour())
-      .set('minute', currentMonth.minute())
       .add(daysToAdd - 1, 'day') // start of month is 1st, so we have to subtract one day
+      .endOf('day')
       .format();
 
     return {

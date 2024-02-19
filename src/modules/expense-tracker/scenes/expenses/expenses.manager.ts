@@ -1,5 +1,5 @@
 import { ExpensesSceneContext } from './expenses.scene';
-import { dayjs } from '@/app';
+import { dayjs, formatToISO } from '@/app';
 import { expensesApi } from '@/modules/expense-tracker/api';
 import { Expense } from '@/modules/expense-tracker/types';
 import { vocabulary } from '@/modules/expense-tracker/vocabulary';
@@ -69,7 +69,7 @@ export class ExpensesManager {
       : '';
 
     const replyText = fmt`${totalSpendingText}\n${samePeriodLastMonthText}\n\n${mostExpensiveCategoryText}\n${largestExpenseText}\n\n${lastUpdate(
-      ctx.session.expenses?.updatedAt,
+      dayjs(ctx.session.expenses?.updatedAt),
     )}`;
 
     return editMessage
@@ -148,27 +148,33 @@ export class ExpensesManager {
     const expenses = await ExpensesManager.getExpenses(ctx);
     const today = dayjs();
 
-    return expenses.filter((expense) =>
-      dayjs(getDate(expense)).isSame(today, 'day'),
-    );
+    return expenses.filter((expense) => {
+      const date = formatToISO(getDate(expense));
+
+      return dayjs(date).isSame(today, 'day');
+    });
   }
 
   private static async getYesterdayExpenses(ctx: ExpensesSceneContext) {
     const expenses = await ExpensesManager.getExpenses(ctx);
     const yesterday = dayjs().subtract(1, 'day');
 
-    return expenses.filter((expense) =>
-      dayjs(getDate(expense)).isSame(yesterday, 'day'),
-    );
+    return expenses.filter((expense) => {
+      const date = formatToISO(getDate(expense));
+
+      return dayjs(date).isSame(yesterday, 'day');
+    });
   }
 
   private static async getLastMonthExpenses(ctx: ExpensesSceneContext) {
     const expenses = await ExpensesManager.getExpenses(ctx);
     const lastMonth = dayjs().subtract(1, 'month');
 
-    return expenses.filter((expense) =>
-      dayjs(getDate(expense)).isSame(lastMonth, 'month'),
-    );
+    return expenses.filter((expense) => {
+      const date = formatToISO(getDate(expense));
+
+      return dayjs(date).isSame(lastMonth, 'month');
+    });
   }
 
   private static async getThisMonthExpenses(
@@ -176,9 +182,11 @@ export class ExpensesManager {
   ): Promise<Expense[]> {
     const expenses = await ExpensesManager.getExpenses(ctx);
 
-    return expenses.filter(({ properties: { Date } }) =>
-      dayjs(Date.date?.start).isSame(dayjs(), 'month'),
-    );
+    return expenses.filter((expense) => {
+      const date = formatToISO(getDate(expense));
+
+      return dayjs(date).isSame(dayjs(), 'month');
+    });
   }
 
   private static async getLastMonthToSameDayExpenses(
