@@ -1,4 +1,5 @@
 import { dayjs } from '@/app';
+import { pluralize } from '@/app/helpers/pluralize';
 
 export interface DateRange {
   start: string;
@@ -47,5 +48,24 @@ export class DateHelper {
       start,
       end,
     };
+  }
+
+  static formatMsToHM(ms: number): string {
+    const hours = Math.floor(ms / (1000 * 60 * 60));
+    const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((ms % (1000 * 60)) / 1000);
+    const hoursStr = hours + ' ' + pluralize('hour', hours);
+    const minutesStr = minutes + ' ' + pluralize('minute', minutes);
+    const secondsStr = seconds + ' ' + pluralize('second', seconds);
+
+    if (hours) {
+      return `${hoursStr}, ${minutesStr}, ${secondsStr}`;
+    }
+
+    if (minutes) {
+      return `${minutesStr}, ${secondsStr}`;
+    }
+
+    return secondsStr;
   }
 }

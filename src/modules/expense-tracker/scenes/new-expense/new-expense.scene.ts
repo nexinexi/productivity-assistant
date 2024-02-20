@@ -6,6 +6,7 @@ import { createExpenseStep } from '@/modules/expense-tracker/scenes/new-expense/
 import { EXPENSES_SCENE_ID } from '@/modules/expense-tracker/scenes/expenses/expenses.command';
 import { NEW_EXPENSE_SCENE_ID } from '@/modules/expense-tracker/scenes/new-expense/new-expense.command';
 import { TIMEZONE_SCENE_ID } from '@/app/scenes/timezone';
+import { HABITS_SCENE_ID } from '@/modules/habit-tracker/scenes/habits/habits.command';
 
 export interface NewExpenseSceneSession extends Scenes.WizardSessionData {
   newExpense?: Omit<NewExpense, 'category'>;
@@ -27,5 +28,6 @@ const scene = new Scenes.WizardScene<NewExpenseSceneContext>(
 
 scene.command(EXPENSES_SCENE_ID, (ctx) => ctx.scene.enter(EXPENSES_SCENE_ID));
 scene.command(TIMEZONE_SCENE_ID, (ctx) => ctx.scene.enter(TIMEZONE_SCENE_ID));
+scene.command(HABITS_SCENE_ID, (ctx) => ctx.scene.enter(HABITS_SCENE_ID));
 
 export default scene;

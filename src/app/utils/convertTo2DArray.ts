@@ -1,5 +1,5 @@
-export const convertTo2DArray = (array: any[], size = 2): any[][] => {
-  const result: any[][] = [];
+export const convertTo2DArray = (array: never[], size = 2): never[][] => {
+  const result: never[][] = [];
 
   for (let i = 0; i < array.length; i += size) {
     result.push(array.slice(i, i + size));

@@ -13,6 +13,7 @@ import {
   PURCHASES_THIS_MONTH,
 } from '@/modules/expense-tracker/scenes/expenses/expenses.constants';
 import { TIMEZONE_SCENE_ID } from '@/app/scenes/timezone';
+import { HABITS_SCENE_ID } from '@/modules/habit-tracker/scenes/habits/habits.command';
 
 export interface ExpensesSceneContext extends BotContext {
   scene: Scenes.SceneContextScene<ExpensesSceneContext>;
@@ -23,6 +24,7 @@ const scene = new Scenes.BaseScene<ExpensesSceneContext>(EXPENSES_SCENE_ID);
 scene.enter((ctx) => ExpensesManager.handleMonthly(ctx));
 scene.command(EXPENSES_SCENE_ID, (ctx) => ExpensesManager.handleMonthly(ctx));
 scene.command(TIMEZONE_SCENE_ID, (ctx) => ctx.scene.enter(TIMEZONE_SCENE_ID));
+scene.command(HABITS_SCENE_ID, (ctx) => ctx.scene.enter(HABITS_SCENE_ID));
 
 scene.action(EXPENSES_TODAY, ExpensesManager.handleToday);
 scene.action(EXPENSES_YESTERDAY, ExpensesManager.handleYesterday);

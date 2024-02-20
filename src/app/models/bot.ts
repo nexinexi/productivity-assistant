@@ -1,9 +1,11 @@
 import { Context, Scenes, Telegraf } from 'telegraf';
 import { EnvService } from '@/app/config';
 import { ExpenseTrackerSession } from '@/modules/expense-tracker/types';
+import { HabitsSession } from '@/modules/habit-tracker/types';
 
 interface Session extends Scenes.WizardSession {
   expenses?: ExpenseTrackerSession;
+  habits?: HabitsSession;
 }
 
 export interface BotContext extends Context {

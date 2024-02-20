@@ -22,7 +22,7 @@ validateExpenseStep.on(message('text'), async (ctx) => {
   };
 
   const categories = new Set(
-    ctx.session?.expenses.entries.map(
+    ctx.session?.expenses?.entries.map(
       (expense) => expense.properties.Category.select!.name,
     ),
   );

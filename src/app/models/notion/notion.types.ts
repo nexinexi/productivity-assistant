@@ -2,6 +2,49 @@ import { EmptyObject } from '@/app/types';
 
 type IdRequest = string;
 
+export type DbQueryFilter =
+  | {
+      or: Array<
+        | PropertyFilter
+        | TimestampCreatedTimeFilter
+        | TimestampLastEditedTimeFilter
+        | {
+            or: Array<PropertyFilter>;
+          }
+        | {
+            and: Array<PropertyFilter>;
+          }
+      >;
+    }
+  | {
+      and: Array<
+        | PropertyFilter
+        | TimestampCreatedTimeFilter
+        | TimestampLastEditedTimeFilter
+        | {
+            or: Array<PropertyFilter>;
+          }
+        | {
+            and: Array<PropertyFilter>;
+          }
+      >;
+    }
+  | PropertyFilter
+  | TimestampCreatedTimeFilter
+  | TimestampLastEditedTimeFilter;
+
+export type TimestampLastEditedTimeFilter = {
+  last_edited_time: DatePropertyFilter;
+  timestamp: 'last_edited_time';
+  type?: 'last_edited_time';
+};
+
+export type TimestampCreatedTimeFilter = {
+  created_time: DatePropertyFilter;
+  timestamp: 'created_time';
+  type?: 'created_time';
+};
+
 export type PropertyFilter =
   | {
       title: TextPropertyFilter;

@@ -1,7 +1,7 @@
 import { Client } from '@notionhq/client';
 import { EnvService } from '@/app/config';
 
-class Notion {
+export class Notion {
   private static instance: Client;
 
   private constructor() {}
@@ -16,5 +16,3 @@ class Notion {
     return Notion.instance;
   }
 }
-
-export const notion = Notion.getInstance();

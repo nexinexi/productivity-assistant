@@ -19,7 +19,11 @@ export class EnvService {
     return EnvService.getVariableIfExists('NOTION_API_KEY');
   }
 
-  public static get notionDataBaseId(): string {
+  public static get notionExpensesDataBaseId(): string {
     return EnvService.getVariableIfExists('NOTION_EXPENSES_DATABASE_ID');
+  }
+
+  public static get notionHabitTrackerDatabaseId(): string {
+    return EnvService.getVariableIfExists('NOTION_HABIT_TRACKER_DATABASE_ID');
   }
 }

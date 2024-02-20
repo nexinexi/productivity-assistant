@@ -17,7 +17,7 @@ async function init(): Promise<void> {
   initScenes();
   initRandomMessagesHandler();
 
-  bot.launch();
+  bot.launch({ dropPendingUpdates: true });
 }
 
 init();
