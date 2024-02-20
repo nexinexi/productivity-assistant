@@ -5,7 +5,6 @@ import { Nullable } from '@/app/types';
 import { Habits } from '@/modules/habit-tracker/types';
 import { DateHelper } from '@/app/helpers';
 import { CallbackQuery } from '@telegraf/types';
-import DataQuery = CallbackQuery.DataQuery;
 import { getHabitsKeyboard } from '@/modules/habit-tracker/scenes/habits/keyboards/habits.keyboard';
 
 export class HabitsManager {
@@ -31,7 +30,7 @@ export class HabitsManager {
       );
     }
 
-    const habitId = (ctx.callbackQuery as DataQuery).data;
+    const habitId = (ctx.callbackQuery as CallbackQuery.DataQuery).data;
     const habitToUpdate = habits.entries.find((habit) => habit.id === habitId);
 
     if (!habitToUpdate) {
