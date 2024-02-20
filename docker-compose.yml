@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: productivity-assistant
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env

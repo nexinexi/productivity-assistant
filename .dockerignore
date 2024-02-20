@@ -1,0 +1,10 @@
+Dockerfile
+.dockerignore
+node_modules
+yarn-error.log
+.git
+README.md
+nodemon.json
+.env.template
+build
+.idea
