@@ -12,8 +12,8 @@ import {
   PURCHASES_LAST_MONTH,
   PURCHASES_THIS_MONTH,
 } from '@/modules/expense-tracker/scenes/expenses/expenses.constants';
-import { TIMEZONE_SCENE_ID } from '@/app/scenes/timezone';
 import { HABITS_SCENE_ID } from '@/modules/habit-tracker/scenes/habits/habits.command';
+import { TIMEZONE_SCENE_ID } from '@/modules/timezone/scenes/timezone.scene';
 
 export interface ExpensesSceneContext extends BotContext {
   scene: Scenes.SceneContextScene<ExpensesSceneContext>;

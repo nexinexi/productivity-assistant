@@ -5,8 +5,8 @@ import { validateExpenseStep } from '@/modules/expense-tracker/scenes/new-expens
 import { createExpenseStep } from '@/modules/expense-tracker/scenes/new-expense/steps/create-expense';
 import { EXPENSES_SCENE_ID } from '@/modules/expense-tracker/scenes/expenses/expenses.command';
 import { NEW_EXPENSE_SCENE_ID } from '@/modules/expense-tracker/scenes/new-expense/new-expense.command';
-import { TIMEZONE_SCENE_ID } from '@/app/scenes/timezone';
 import { HABITS_SCENE_ID } from '@/modules/habit-tracker/scenes/habits/habits.command';
+import { TIMEZONE_SCENE_ID } from '@/modules/timezone/scenes/timezone.scene';
 
 export interface NewExpenseSceneSession extends Scenes.WizardSessionData {
   newExpense?: Omit<NewExpense, 'category'>;

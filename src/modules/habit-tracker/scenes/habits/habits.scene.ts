@@ -2,8 +2,8 @@ import { Scenes } from 'telegraf';
 import { bot, BotContext } from '@/app';
 import { HABITS_SCENE_ID } from './habits.command';
 import { EXPENSES_SCENE_ID } from '@/modules/expense-tracker/scenes/expenses/expenses.command';
-import { TIMEZONE_SCENE_ID } from '@/app/scenes/timezone';
 import { HabitsManager } from '@/modules/habit-tracker/scenes/habits/habits.manager';
+import { TIMEZONE_SCENE_ID } from '@/modules/timezone/scenes/timezone.scene';
 
 export interface HabitsSceneContext extends BotContext {
   scene: Scenes.SceneContextScene<HabitsSceneContext>;

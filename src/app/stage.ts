@@ -4,8 +4,8 @@ import {
   initExpensesScene,
   newExpenseScene,
 } from '@/modules/expense-tracker';
-import { initTimezoneScene, timezoneScene } from '@/app/scenes';
 import { habitsScene, initHabitsScene } from '@/modules/habit-tracker';
+import { initTimezoneScene, timezoneScene } from '@/modules/timezone';
 
 // todo: fix any
 const stage = new Scenes.Stage<any>([

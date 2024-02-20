@@ -12,7 +12,7 @@ export const DEFAULT_TIMEZONE = 'Asia/Bangkok';
 export const setTimeZone = (timezone = DEFAULT_TIMEZONE) =>
   _dayjs.tz.setDefault(timezone);
 
-// @ts-ignore
+// @ts-expect-error there is no method to get current timezone. guess() is not our case.
 export const getTimeZone = (): string => dayjs()['$x']['$timezone'];
 
 export const dayjs = (...args: Parameters<typeof _dayjs>) =>

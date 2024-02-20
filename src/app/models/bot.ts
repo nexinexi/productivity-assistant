@@ -18,6 +18,7 @@ export type TelegrafBotType = Telegraf<BotContext>;
 class TelegrafBot {
   private static instance: TelegrafBotType;
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private constructor() {}
 
   public static getInstance(): TelegrafBotType {

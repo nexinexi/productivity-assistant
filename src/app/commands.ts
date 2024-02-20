@@ -1,7 +1,7 @@
 import { bot } from '@/app';
 import { expensesCommand } from '@/modules/expense-tracker/scenes/expenses/expenses.command';
-import { timezoneCommand } from '@/app/scenes/timezone';
 import { habitsCommand } from '@/modules/habit-tracker/scenes/habits/habits.command';
+import { timezoneCommand } from '@/modules/timezone/scenes/timezone.scene';
 
 export async function initCommands() {
   await bot.telegram.setMyCommands([
