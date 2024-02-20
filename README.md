@@ -1,7 +1,7 @@
-# Personal Assistant
-Personal Assistant is a Telegram bot designed for expense and habit tracking, utilizing Notion as a database.
+# Productivity Assistant
+Productivity Assistant is a Telegram bot designed for expense and habit tracking, utilizing Notion as a database.
 
-![Personal Assistant Telegram Bot](./examples/about.png)
+![Productivity Assistant Telegram Bot](./examples/about.png)
 
 ## Modules
 ### Expense Tracker
