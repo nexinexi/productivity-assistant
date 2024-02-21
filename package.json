@@ -29,7 +29,6 @@
   "dependencies": {
     "dotenv": "^16.4.1",
     "@notionhq/client": "^2.2.14",
-    "currency-converter-lt": "^2.0.1",
     "dayjs": "^1.11.10",
     "telegraf": "^4.15.3"
   }

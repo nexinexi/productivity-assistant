@@ -3,10 +3,23 @@ import { Expense, NewExpense } from '@/modules/expense-tracker/types';
 import { EnvService } from '@/app/config';
 import { DatePropertyFilter, PropertyFilter } from '@/app/models/notion';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
-import CC from 'currency-converter-lt';
 import { DateHelper } from '@/app/helpers';
+import {
+  CurrencyConverter,
+  OpenExchangeRatesConverter,
+} from '@/app/models/currency-converter';
 
 class ExpensesApi extends NotionApi {
+  private currencyConverter: CurrencyConverter;
+
+  constructor() {
+    super();
+
+    this.currencyConverter = new CurrencyConverter(
+      new OpenExchangeRatesConverter(),
+    );
+  }
+
   public async getFilteredByDate(date: DatePropertyFilter): Promise<Expense[]> {
     return this.get({ property: 'Date', date });
   }
@@ -22,14 +35,11 @@ class ExpensesApi extends NotionApi {
     amount,
     category,
   }: NewExpense): Promise<PageObjectResponse> {
-    // todo: implement own solution for convert
-    const currencyConverter = new CC({
-      from: 'THB',
-      to: 'USD',
+    const convertedUSD = await this.currencyConverter.convert(
       amount,
-    });
-
-    const convertedUSD = await currencyConverter.convert();
+      'THB',
+      'USD',
+    );
     const amountUSD = parseFloat(convertedUSD.toFixed(2));
 
     return (await this.notionClient.pages.create({

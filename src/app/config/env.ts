@@ -26,4 +26,8 @@ export class EnvService {
   public static get notionHabitTrackerDatabaseId(): string {
     return EnvService.getVariableIfExists('NOTION_HABIT_TRACKER_DATABASE_ID');
   }
+
+  public static get openExchangeRatesAppId(): string {
+    return EnvService.getVariableIfExists('OPEN_EXCHANGE_RATES_APP_ID');
+  }
 }
